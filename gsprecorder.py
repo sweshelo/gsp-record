@@ -28,19 +28,22 @@ class recorder:
     def get_length(self):
         return len(self.sheet_data)
 
-    def add_row(self, array, point = 0):
+    def add_row(self, array, strnize):
         # 挿入するデータ数がシートのデータ数と同じか
         if (len(self.sheet_data[0]) > 0 and len(array) != len(self.sheet_data[0])):
             return -1
 
-        print(array)
+        # 挿入するデータを全て文字列に変換する
+        print(strnize)
+        if (strnize == True):
+            array = [str(i) for i in array]
+            print(array)
+
         self.sheet_data.append(array)
-        print(self.sheet_data)
         return 0
 
     def update(self):
         cellguid = convert_cellguige(1, 1, len(self.sheet_data[0]), len(self.sheet_data))
-        print(self.sheet_data)
         self.worksheet.update(cellguid, self.sheet_data)
         return 0
 

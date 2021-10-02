@@ -16,7 +16,7 @@ def main():
     judge = True
     data = [datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), detect_face, detect_eye, back_temp, face_temp, face_temp - back_temp, judge]
 
-    recode.add_row(data, recode.get_length())
+    recode.add_row(data, True)
     recode.update()
 
 if __name__ == "__main__":
