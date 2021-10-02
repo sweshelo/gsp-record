@@ -14,9 +14,10 @@ def main():
     back_temp   = random.uniform(19, 29)
     face_temp   = random.uniform(25, 35)
     judge = True
-    data = [datetime.datetime.now(), detect_face, detect_eye, back_temp, face_temp, face_temp - back_temp, judge]
+    data = [datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), detect_face, detect_eye, back_temp, face_temp, face_temp - back_temp, judge]
 
     recode.add_row(data, recode.get_length())
+    recode.update()
 
 if __name__ == "__main__":
     main()
